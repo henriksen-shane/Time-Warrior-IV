@@ -1,0 +1,50 @@
+fileFormatVersion: 2
+guid: 5f2047b86401ce84ba98a1e15876930a
+timeCreated: 1445377468
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - black: {fileID: 2100000, guid: 25efd9bb52c7992449a2fc8d70c44d5e, type: 2}
+  - blue: {fileID: 2100000, guid: 7d53d4e24d0fe974b8d71bb5e5910328, type: 2}
+  - green: {fileID: 2100000, guid: 454479e3ef0eece4eaf2882c8bec5aef, type: 2}
+  - orange: {fileID: 2100000, guid: 4dff080ad575d794f865e41191e9a28d, type: 2}
+  - purple: {fileID: 2100000, guid: 91032d9423b524d4f81b71898df677ea, type: 2}
+  - red: {fileID: 2100000, guid: 24b62d4519a437346895ab7cbea7d2cb, type: 2}
+  - yellow: {fileID: 2100000, guid: 6b1a3bba99d921b469b5a706ea33920e, type: 2}
+  - hex: {fileID: 119342, guid: 7864ef5eb512d224b8d3bba66709cb2c, type: 2}
+  - hexT: {instanceID: 0}
+  - tear: {fileID: 146450, guid: 0705dc4c1c0127b4d84f8051a3a32702, type: 2}
+  - tearT: {instanceID: 0}
+  - square: {fileID: 118158, guid: 653951095d61aab4299454bdb0c03b02, type: 2}
+  - squareT: {instanceID: 0}
+  - triangle: {fileID: 117922, guid: 0bdab8a75abeef14c9cce41a6f105468, type: 2}
+  - triangleT: {instanceID: 0}
+  - circle: {fileID: 156650, guid: 3a7d5a1a85305df48bbb72c7806eb5a6, type: 2}
+  - circleT: {instanceID: 0}
+  - diamond: {fileID: 130626, guid: eb633e6c5d1e2624d9db952ff084482b, type: 2}
+  - diamondT: {instanceID: 0}
+  - star: {fileID: 107368, guid: ee2d2f3bc63b79d468446b15c7ab500a, type: 2}
+  - starT: {instanceID: 0}
+  - turnStartText: {instanceID: 0}
+  - blackManaOneText: {instanceID: 0}
+  - blueManaOneText: {instanceID: 0}
+  - greenManaOneText: {instanceID: 0}
+  - orangeManaOneText: {instanceID: 0}
+  - purpleManaOneText: {instanceID: 0}
+  - redManaOneText: {instanceID: 0}
+  - yellowManaOneText: {instanceID: 0}
+  - blackManaTwoText: {instanceID: 0}
+  - blueManaTwoText: {instanceID: 0}
+  - greenManaTwoText: {instanceID: 0}
+  - orangeManaTwoText: {instanceID: 0}
+  - purpleManaTwoText: {instanceID: 0}
+  - redManaTwoText: {instanceID: 0}
+  - yellowManaTwoText: {instanceID: 0}
+  - testButton: {fileID: 11476364, guid: 6147935d01532a2408f2eb88487e6eb5, type: 2}
+  - wholeCanvas: {fileID: 22373890, guid: dcf65a05ecd9b944cbce511d147ee43b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
