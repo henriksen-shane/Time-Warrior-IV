@@ -24,6 +24,7 @@ public class Charge : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.redManaOne < 15){
 				button.image.overrideSprite = greyOut;
@@ -45,6 +46,7 @@ public class Charge : MonoBehaviour {
 	public void Clicked (){
 
 		if (gameScript.allowActions == true) {
+			//activates charge mode, where a player keeps taking turns as long as they are making black matches
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
 				if (gameScript.redManaOne < 15){
 					gameScript.actionText.text = "Get more red energy!";
@@ -59,6 +61,7 @@ public class Charge : MonoBehaviour {
 						gameScript.charging = true;
 						gameScript.actionText.text = "Charging! Swap until you make a non black match.";
 					}
+					// dont do anything if they are already charging
 					else if (gameScript.charging == true) {
 						gameScript.actionText.text = "Already Charging";
 					}
@@ -85,10 +88,13 @@ public class Charge : MonoBehaviour {
 			}
 		}
 	}
+	
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
 	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
