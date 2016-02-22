@@ -11,8 +11,8 @@ public class CloseOptionExplain : MonoBehaviour {
 	public GameObject three;
 
 	void Update (){
+		//activate the option menu if they hit escape
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Debug.Log ("arrow update");
 			Clicked ();
 		}
 	}
