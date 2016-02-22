@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Exit : MonoBehaviour {
 
-
-
-	// Update is called once per frame
+	// Close the game
 	public void Clicked () {
 		Application.Quit();	
 	}
