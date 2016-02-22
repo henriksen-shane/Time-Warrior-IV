@@ -24,6 +24,7 @@ public class ChaosBeam: MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.orangeManaOne < 20){
 				button.image.overrideSprite = greyOut;
@@ -43,6 +44,7 @@ public class ChaosBeam: MonoBehaviour {
 	}
 
 	public void Clicked (){
+		//drain orange energy and deal a random amount of damage to opponent
 		if (gameScript.allowActions == true) {
 			int randomPower = Random.Range(0, 3);
 
@@ -100,10 +102,12 @@ public class ChaosBeam: MonoBehaviour {
 			}
 		}
 	}
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
 	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
