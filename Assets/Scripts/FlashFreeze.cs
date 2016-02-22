@@ -24,6 +24,7 @@ public class FlashFreeze : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.blueManaOne < 8){
 				button.image.overrideSprite = greyOut;
@@ -45,30 +46,25 @@ public class FlashFreeze : MonoBehaviour {
 	public void Clicked (){
 		GameObject go = GameObject.Find ("GameManagerObject");
 		GameManager gameScript = go.GetComponent<GameManager> ();
-		Debug.Log ("Button Clicked");
-
+	
+		//makes the opponent lose their turn.
 		if (gameScript.allowActions == true) {
-			Debug.Log ("allow actions was true");
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
-				Debug.Log ("Player1Turn");
 				if (gameScript.blueManaOne < 8){
 					gameScript.actionText.text = "Get more blue energy!";
 				}
 				else {
 					if (gameScript.stun == false) {
-						Debug.Log ("stun was false");
 						gameScript.blueManaOne = gameScript.blueManaOne - 8;   
 						gameScript.blueOne.value = (float)gameScript.blueManaOne;
 						gameScript.blueManaOneText.text = "" + gameScript.blueManaOne;
 
 						gameScript.PlaySFX("freeze");
 						gameScript.stun = true;
-						Debug.Log ("stun set to true");
 						gameScript.freeze2.SetActive(true);
 						gameScript.actionText.text = "Opponent stunned";
 					} 
 					else if (gameScript.stun == true) {
-						Debug.Log ("Stun was true");
 						gameScript.actionText.text = "Opponent already stunned";
 					}
 				}
@@ -95,10 +91,11 @@ public class FlashFreeze : MonoBehaviour {
 			}
 		}
 	}
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
