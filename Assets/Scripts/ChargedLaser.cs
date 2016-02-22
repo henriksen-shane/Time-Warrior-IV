@@ -27,8 +27,8 @@ public class ChargedLaser : MonoBehaviour {
 		gameScript = manage.GetComponent<GameManager> ();
 	}
 	
-	// Update is called once per frame
 	void Update () {
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.yellowManaOne < 20){
 				button.image.overrideSprite = greyOut;
@@ -45,8 +45,9 @@ public class ChargedLaser : MonoBehaviour {
 				button.image.overrideSprite = null;
 			}
 		}
-
+		
 		Ray ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
+		// on click, if the button was previously pressed checks for the color of the next tile clicked
 		if (Input.GetButtonDown("Fire1")) {
 			if (Physics.Raycast (ray1, out hit, Mathf.Infinity)) {
 				GameObject selectedTile = hit.transform.gameObject;
@@ -63,6 +64,7 @@ public class ChargedLaser : MonoBehaviour {
 	}
 
 	public void Clicked (){
+		// If you have the energy, this sets the game to look at the next tile clicked on as the color to convert
 		if (gameScript.allowActions == true) {
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
 				if (gameScript.yellowManaOne < 20){
@@ -104,6 +106,7 @@ public class ChargedLaser : MonoBehaviour {
 		int row;
 		GameObject manage = GameObject.Find ("GameManagerObject");
 		GameManager gameScript = manage.GetComponent<GameManager> ();		
+		// gets all tiles of the color clicked on and converts them to yellow
 		GameObject[] tilesToConvert = GameObject.FindGameObjectsWithTag(tagToChange);
 		foreach (GameObject go in tilesToConvert) {
 			column = go.GetComponent<Tile> ().GetColumn ();
@@ -119,10 +122,11 @@ public class ChargedLaser : MonoBehaviour {
 		gameScript.CheckForMatchesAfterReplace ();
 	}
 
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
