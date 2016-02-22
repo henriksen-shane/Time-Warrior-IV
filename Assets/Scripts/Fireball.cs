@@ -24,6 +24,7 @@ public class Fireball : MonoBehaviour {
 	}
 
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.blueManaOne < 4){
 				button.image.overrideSprite = greyOut;
@@ -45,7 +46,7 @@ public class Fireball : MonoBehaviour {
 	public void Clicked (){
 
 		if (gameScript.allowActions == true) {
-
+			//deal 3 damage to opponent
 			if ((gameScript.playerOneTurn) && (player == 1)){
 				if (gameScript.blueManaOne < 4){
 					gameScript.actionText.text = "Get more blue energy!";
@@ -79,11 +80,12 @@ public class Fireball : MonoBehaviour {
 	}
 
 
-
+	
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
