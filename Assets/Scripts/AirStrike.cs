@@ -24,6 +24,7 @@ public class AirStrike : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.greenManaOne < 20){
 				button.image.overrideSprite = greyOut;
@@ -44,7 +45,7 @@ public class AirStrike : MonoBehaviour {
 
 	public void Clicked (){
 		if (gameScript.allowActions == true) {
-
+			// Deal damage and reduce the opponent's energy reserves
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
 				if (gameScript.greenManaOne < 20){
 					gameScript.actionText.text = "Get more green energy!";
@@ -121,11 +122,13 @@ public class AirStrike : MonoBehaviour {
 
 		}
 	}
-
+	
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
 	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
