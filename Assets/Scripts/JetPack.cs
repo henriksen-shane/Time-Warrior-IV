@@ -24,6 +24,7 @@ public class JetPack : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.yellowManaOne < 10){
 				button.image.overrideSprite = greyOut;
@@ -43,6 +44,7 @@ public class JetPack : MonoBehaviour {
 	}
 
 	public void Clicked (){
+		//sets the player in jetpack mode, where they the next instance of damage
 		if (gameScript.allowActions == true) {
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
 				if (gameScript.yellowManaOne < 10){
@@ -75,10 +77,13 @@ public class JetPack : MonoBehaviour {
 		}
 	}
 
+
+//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
 	
+//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
