@@ -26,8 +26,8 @@ public class Grenade : MonoBehaviour {
 		gameScript = manage.GetComponent<GameManager> ();
 	}
 
-	// Update is called once per frame
 	void Update () {
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.greenManaOne < 6){
 				button.image.overrideSprite = greyOut;
@@ -45,6 +45,7 @@ public class Grenade : MonoBehaviour {
 			}
 		}
 
+		//sends the clicked on tile to the TileChosen method
 		Ray ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Input.GetButtonDown("Fire1")) {
 			if (Physics.Raycast (ray1, out hit, Mathf.Infinity)) {
@@ -58,6 +59,7 @@ public class Grenade : MonoBehaviour {
 	}
 
 	public void Clicked (){
+		// when the button is clicked, the game starts looking for the next tile clicked on.
 		if (gameScript.allowActions == true) {
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains ("Play1"))) {
 				if (gameScript.greenManaOne < 6) {
@@ -91,7 +93,7 @@ public class Grenade : MonoBehaviour {
 	}
 
 	void TileChosen (GameObject center){
-
+	// tile chosen and the tiles surrounding it are removed
 		int column = center.GetComponent<Tile> ().GetColumn ();
 		int row = center.GetComponent<Tile> ().GetRow ();
 		gameScript.PlaySFX("grenade");
@@ -99,6 +101,7 @@ public class Grenade : MonoBehaviour {
 		//create a 3x3 grid to explode
 		for (int i = -1; i < 2; i++) {
 			for (int j = -1; j < 2; j++){
+				// the ifs ensure that only tiles on the grid will be removed (skips non existent tiles on the sides)
 				if (((column + i) >= 0) && ((column + i) < 8)){ 
 					if (((row + j) >= 0) && ((row + j) < 8)) {
 						tilesToRemove.Add (gameScript.tileArray [(column + i), (row + j)]);
@@ -112,10 +115,11 @@ public class Grenade : MonoBehaviour {
 		grenadeStarted = false;
 		StartCoroutine (gameScript.Collapse ());
 	}
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
