@@ -24,6 +24,7 @@ public class ManaBomb : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.orangeManaOne < 10){
 				button.image.overrideSprite = greyOut;
@@ -44,6 +45,7 @@ public class ManaBomb : MonoBehaviour {
 
 	public void Clicked (){
 
+		// picks a random color and destroys all tiles of that color
 		if (gameScript.allowActions == true) {
 			string removalTag = gameScript.RandomTile().tag;
 
@@ -137,10 +139,12 @@ public class ManaBomb : MonoBehaviour {
 			}
 		}
 	}
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
+
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
