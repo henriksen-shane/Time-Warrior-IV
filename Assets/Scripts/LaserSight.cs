@@ -24,6 +24,7 @@ public class LaserSight : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.greenManaOne < 10){
 				button.image.overrideSprite = greyOut;
@@ -43,6 +44,7 @@ public class LaserSight : MonoBehaviour {
 	}
 
 	public void Clicked (){
+		//puts the player in laser sight mode where they deal double damage
 		if (gameScript.allowActions == true) {
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
 				if (gameScript.greenManaOne < 10){
@@ -78,10 +80,12 @@ public class LaserSight : MonoBehaviour {
 			}
 		}
 	}
+	
+//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
