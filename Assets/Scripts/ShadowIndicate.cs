@@ -10,13 +10,12 @@ public class ShadowIndicate : MonoBehaviour {
 	GameManager gameScript;
 
 
-	// Use this for initialization
 	void Start () {
 		manage = GameObject.Find ("GameManagerObject");
 		gameScript = manage.GetComponent<GameManager> ();
 	}
 	
-	// Update is called once per frame
+	// if the player is cloaked, provides a visual effect on their purple mana to indicate it
 	void Update () {
 		if (gameScript.cloaked1){
 			Fill.overrideSprite = smoke;
