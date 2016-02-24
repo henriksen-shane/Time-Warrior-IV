@@ -24,6 +24,7 @@ public class PoisonDart : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.purpleManaOne < 10){
 				button.image.overrideSprite = greyOut;
@@ -43,6 +44,7 @@ public class PoisonDart : MonoBehaviour {
 	}
 
 	public void Clicked (){
+		//sets a player as poisoned, where they take 2 damage per turn until they get purple energy
 		if (gameScript.allowActions == true) {
 			if ((gameScript.playerOneTurn) && (gameObject.tag.Contains("Play1"))){
 				if (gameScript.purpleManaOne < 10){
@@ -77,10 +79,12 @@ public class PoisonDart : MonoBehaviour {
 			}
 		}
 	}
+	
+//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
