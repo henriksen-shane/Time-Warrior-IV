@@ -11,7 +11,7 @@ public class StartOptionExplain : MonoBehaviour {
 	public GameObject three;
 
 	  
-	// Use this for initialization
+	// loads the class explanations in the option menu
 	public void Clicked () {
 		Color c = mainPanel.GetComponent<Image>().color;
 		c.a = 0;
