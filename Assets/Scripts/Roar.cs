@@ -25,6 +25,7 @@ public class Roar : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.redManaOne < 8){
 				button.image.overrideSprite = greyOut;
@@ -44,6 +45,7 @@ public class Roar : MonoBehaviour {
 	}
 
 	public void Clicked () {
+		//choses 3 random tiles on the grid and turns them to black
 		if (gameScript.allowActions == true) {
 			int tempColumn;
 			int tempRow;
@@ -142,7 +144,7 @@ public class Roar : MonoBehaviour {
 						}
 					}
 				}
-				//add in hexes
+				//add in black hexes
 				for (int i = 0; i < 3; i++){
 					if (i == 0){
 						column = column1;
@@ -178,10 +180,11 @@ public class Roar : MonoBehaviour {
 			}
 		}
 	}
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
