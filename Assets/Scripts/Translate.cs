@@ -1,23 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+//used for moving tiles
 public class Translate : MonoBehaviour {
 
 	public float delayTime;
 	public Vector3 posA;
 	public Vector3 posB;
-	//public Vector3 speed = new Vector3(5.0F,0,0);
 	
-	// Use this for initialization
 	void Start () {
 		StartCoroutine(WaitAndMove(delayTime));	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		//transform.Translate(speed * Time.deltaTime);
 	}
 
 	IEnumerator WaitAndMove(float delayTime){
