@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// script attached to each tile that contains its row, column, and sprite information
 public class Tile : MonoBehaviour {
 
 	public int column = 0;
