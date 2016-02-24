@@ -24,6 +24,7 @@ public class WildMagic : MonoBehaviour {
 	}
 	
 	void Update (){
+		//if the player doesn't have enough energy for this move, grey the button out
 		if (player == 1) {
 			if (gameScript.orangeManaOne < 6){
 				button.image.overrideSprite = greyOut;
@@ -44,7 +45,7 @@ public class WildMagic : MonoBehaviour {
 
 	public void Clicked (){
 		if (gameScript.allowActions == true) {
-
+		// changes the player to random class and a random power level within that class
 			int primaryClass = UnityEngine.Random.Range (0, 6);
 			int secondaryClass = UnityEngine.Random.Range (0, 6);
 			int primaryLevel = UnityEngine.Random.Range (1, 4);
@@ -91,10 +92,11 @@ public class WildMagic : MonoBehaviour {
 			}
 		}
 	}
+	//call the script in Game Manger to change the explanation text
 	public void MouseOver (string info){
 		gameScript.ButtonMousedOver (info);
 	}
-	
+	//call the script in Game Manager to erase the explanation text
 	public void MouseLeave (){
 		gameScript.ButtonLeft ();
 	}
